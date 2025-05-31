@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     "Small round": 1.0,
     "NoSub": 0.0
   };
-
+  const date = new Date();
   function getDayOfWeek() {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     return days[new Date().getDay()];
@@ -15,6 +15,11 @@ window.addEventListener('DOMContentLoaded', () => {
   function calculatePrice() {
     const lbs = parseFloat(document.getElementById('lbs').value);
     const basketType = document.getElementById('basket').value;
+
+    if (!basketType) {
+      document.getElementById('result').innerText = "Please select a basket type.";
+      return;
+    }
 
     if (isNaN(lbs) || lbs <= 0) {
       document.getElementById('result').innerText = "Please enter a valid weight.";
@@ -33,10 +38,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     const subtotal = dailyPrice * netWeight;
+    const tax = subtotal * 0.07;
     const totalWithTax = subtotal * 1.07;
 
     document.getElementById('result').innerText = 
-      "Subtotal: $" + `${totalWithTax.toFixed(2)} (${day})`
+      `(${date.toLocaleDateString()})` + "\nTax: $ " + `${tax.toFixed(2)}` + "\nSubtotal: $" + `${totalWithTax.toFixed(2)}`
   }
 
   document.getElementById('calcBtn').addEventListener('click', calculatePrice);

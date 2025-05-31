@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 <head>
   <meta charset="UTF-8">
   <title>Basket Price Calculator</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Quick inline styling to ensure checkbox and text are side by side */
+    .inline-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
-<body>
 <body>
   <div class="container">
     <h2>Basket Price Calculator</h2>
@@ -16,6 +23,7 @@
 
     <label for="basket">Select basket type:</label>
     <select id="basket">
+      <option value="" disabled selected>Select a basket</option>
       <option value="Rectangle">Rectangle Basket (-2 lbs)</option>
       <option value="Rubbermade Tote">Rubbermade Tote (-3 lbs)</option>
       <option value="Tall hamper">Tall Hamper (-3 lbs)</option>
