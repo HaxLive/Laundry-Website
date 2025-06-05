@@ -2,16 +2,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const weightInput = document.getElementById("weightInput");
   const basketSelect = document.getElementById("basketSelect");
   const discountCheckbox = document.getElementById("discountCheckbox");
+  const nofoldCheckbox = document.getElementById("nofold");
   const calculateBtn = document.getElementById("calculateBtn");
   const resultBox = document.getElementById("result");
+
+  // Ensure only one of the checkboxes is checked at any time (even on page load)
+  function enforceExclusiveCheckboxes() {
+    if (discountCheckbox.checked && nofoldCheckbox.checked) {
+      // Uncheck nofold if both are checked
+      nofoldCheckbox.checked = false;
+    }
+  }
+  discountCheckbox.addEventListener("change", () => {
+    if (discountCheckbox.checked) {
+      nofoldCheckbox.checked = false;
+    }
+  });
+  nofoldCheckbox.addEventListener("change", () => {
+    if (nofoldCheckbox.checked) {
+      discountCheckbox.checked = false;
+    }
+  });
+  // Run once on page load
+  enforceExclusiveCheckboxes();
 
   calculateBtn.addEventListener("click", () => {
     const inputWeight = parseFloat(weightInput.value);
     const basketType = basketSelect.value;
     const useBusinessDiscount = discountCheckbox.checked;
+    const useNoFold = nofoldCheckbox.checked;
 
     if (isNaN(inputWeight) || inputWeight <= 0) {
       resultBox.textContent = "Please enter a valid weight.";
+      return;
+    }
+    if (!basketType) {
+      resultBox.textContent = "Please select a basket type.";
       return;
     }
 
@@ -35,6 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (useBusinessDiscount) {
       pricePerLb = 0.95;
+    } else if (useNoFold) {
+      pricePerLb = 0.85;
     } else if (isWednesday) {
       pricePerLb = 1.00;
     }
