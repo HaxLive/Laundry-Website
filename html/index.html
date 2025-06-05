@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Basket Price Calculator</title>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Quick inline styling to ensure checkbox and text are side by side */
-    .inline-checkbox {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Calculator</title>
+    <link rel="stylesheet" href="css/style.css?v2">
+    <script src="js/script.js?v2" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h2>Basket Price Calculator</h2>
+    <div id="particles-js"></div>
+    <main class="calculator">
+        <h1 class="calculator__title">Basket Price Calculator</h1>
 
-    <label for="lbs">Enter basket weight (lbs):</label>
-    <input type="number" id="lbs" step="0.01" />
+        <label for="weightInput" class="calculator__label">Enter basket weight (lbs):</label>
+        <input type="number" id="weightInput" class="calculator__input" step="0.01" />
 
-    <label for="basket">Select basket type:</label>
-    <select id="basket">
-      <option value="" disabled selected>Select a basket</option>
-      <option value="Rectangle">Rectangle Basket (-2 lbs)</option>
-      <option value="Rubbermade Tote">Rubbermade Tote (-3 lbs)</option>
-      <option value="Tall hamper">Tall Hamper (-3 lbs)</option>
-      <option value="Small round">Small Round (-1 lbs)</option>
-      <option value="NoSub">Cloth Hamper / Laundry Bag</option>
-    </select>
+        <label for="basketSelect" class="calculator__label">Select basket type:</label>
+        <select id="basketSelect" class="calculator__select">
+            <option value="" disabled selected>Select a basket</option>
+            <option value="Rectangle">Rectangle Basket (-2 lbs)</option>
+            <option value="Rubbermade Tote">Rubbermade Tote (-3 lbs)</option>
+            <option value="Tall hamper">Tall Hamper (-3 lbs)</option>
+            <option value="Small round">Small Round (-1 lbs)</option>
+            <option value="NoSub">Cloth Hamper / Laundry Bag</option>
+        </select>
 
-    <button id="calcBtn">Calculate</button>
+        <div class="calculator__checkbox-wrapper">
+            <input type="checkbox" id="discountCheckbox" class="calculator__checkbox" name="discount" value="discount">
+            <label for="discountCheckbox" class="calculator__label">Business Discount</label>
+        </div>
 
-    <div id="result"></div>
-  </div>
-
-  <script src="js/script.js"></script>
+        <button id="calculateBtn" class="calculator__button">Calculate Price</button>
+        <div id="result" class="calculator__result"></div>
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        <script src="js/particles-config.js"></script>
+    </main>
+</body>
+<body>
 </body>
 </html>

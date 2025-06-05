@@ -1,47 +1,128 @@
+/* Reset and Base */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6; /* Light gray */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.container {
-  max-width: 500px;
-  margin: auto;
-  background: white;
+/* Main Calculator Container */
+.calculator {
+  background-color: #ffffff;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-label, select, input {
-  display: block;
-  margin: 1rem 0;
+  border-radius: 16px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   width: 100%;
-  padding: 0.5rem;
+  max-width: 420px;
   box-sizing: border-box;
 }
 
-button {
-  padding: 0.7rem 1.2rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-#result {
-  margin-top: 1.5rem;
+/* Title */
+.calculator__title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.75rem;
   font-weight: bold;
+  color: #111827;
+  text-align: center;
 }
-.logo {
-  width: 400px;
-  margin: 0 auto 2rem auto;
+
+/* Labels */
+.calculator__label {
   display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Inputs and Select */
+.calculator__input,
+.calculator__select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.calculator__input:focus,
+.calculator__select:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* Checkbox wrapper */
+.calculator__checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Checkbox styling */
+.calculator__checkbox {
+  transform: scale(1.2);
+  accent-color: #3b82f6; /* Optional: modern checkbox coloring */
+}
+
+/* Button */
+.calculator__button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculator__button:hover {
+  background-color: #2563eb;
+}
+
+/* Result Output */
+.calculator__result {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #111827;
+  font-weight: bold;
+  text-align: center;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #26047d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.container {
+  position: relative;  /* needed to be above particles */
+  z-index: 1;
+  text-align: center;
 }
